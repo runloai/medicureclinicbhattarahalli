@@ -23,11 +23,18 @@
   if (statusText && statusIcon) {
     const formatter = new Intl.DateTimeFormat("en-IN", {
       hour: "numeric",
+      minute: "numeric",
       hour12: false,
       timeZone: "Asia/Kolkata"
     });
-    const currentHour = Number(formatter.format(new Date()));
-    const isOpen = currentHour >= 9 && currentHour < 21;
+    const now = new Date();
+    const parts = formatter.formatToParts(now);
+    const hour = Number(parts.find(p => p.type === 'hour').value);
+    const minute = Number(parts.find(p => p.type === 'minute').value);
+    const currentTime = hour * 60 + minute;
+    const openTime = 8 * 60 + 30;
+    const closeTime = 23 * 60 + 30;
+    const isOpen = currentTime >= openTime && currentTime < closeTime;
 
     statusText.textContent = isOpen ? "Open now" : "Closed now";
     statusIcon.classList.toggle("is-open", isOpen);
