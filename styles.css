@@ -968,13 +968,14 @@ h3 {
 }
 
 .map-container {
-  height: 350px;
-  border-radius: var(--radius);
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
 }
 
 .map-container iframe {
-  min-height: 350px;
+  flex: 1;
+  min-height: 320px;
 }
 
 .contact-list {
@@ -1081,6 +1082,22 @@ h3 {
   margin-top: 26px;
   color: var(--primary);
   font-weight: 800;
+}
+
+.map-direction-btn {
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.map-container .section-kicker {
+  margin-bottom: 8px;
+}
+
+.map-container iframe {
+  border-radius: var(--radius);
+  margin-top: 8px;
 }
 
 .appointment-form {
