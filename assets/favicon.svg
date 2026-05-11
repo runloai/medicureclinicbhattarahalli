@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Medicure">
+  <rect x="11" y="17" width="42" height="36" rx="8" fill="#ffffff" stroke="#e32027" stroke-width="5"/>
+  <rect x="28" y="23" width="8" height="24" rx="2" fill="#e32027"/>
+  <rect x="20" y="31" width="24" height="8" rx="2" fill="#e32027"/>
+  <rect x="24" y="9" width="16" height="10" rx="3" fill="#ffffff" stroke="#e32027" stroke-width="5"/>
+</svg>
