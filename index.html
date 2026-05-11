@@ -8,12 +8,45 @@
       name="description"
       content="Medicure Clinic & Medical provides general consultations, pediatric care, diabetology, gynaecology, physiotherapy, laboratory services, and pharmacy support in Bhattarahalli, Bengaluru."
     >
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="IN-KA">
+    <meta name="geo.placename" content="Bhattarahalli, Bengaluru">
     <meta property="og:title" content="Medicure Clinic & Medical">
     <meta property="og:description" content="Patient-first clinical care for Bhattarahalli and T.C. Palya.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/clinic-exam-room.jpg">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "Medicure Clinic & Medical",
+        "image": "assets/clinic-exam-room.jpg",
+        "telephone": "+917977277478",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "A Block Avenue, No. 15/16, Lakshmi Mansion, near Garden City University, Bhattarahalli",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "postalCode": "560049",
+          "addressCountry": "IN"
+        },
+        "areaServed": [
+          "Bhattarahalli",
+          "T.C. Palya",
+          "Bengaluru"
+        ],
+        "openingHours": "Mo-Su 09:00-21:00",
+        "medicalSpecialty": [
+          "PrimaryCare",
+          "Pediatrics",
+          "Gynecologic",
+          "Physiotherapy",
+          "Pathology"
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -304,14 +337,10 @@
             >Open map</a>
           </div>
 
-          <form class="appointment-form" id="appointment" name="appointment" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="appointment">
-            <p class="hidden-field">
-              <label>Do not fill this out <input name="bot-field"></label>
-            </p>
+          <form class="appointment-form" id="appointment" data-whatsapp-form>
             <div class="form-heading">
               <p class="section-kicker">Appointment</p>
-              <h2>Request a visit</h2>
+              <h2>Book an appointment</h2>
             </div>
             <label>
               Full name
@@ -322,27 +351,10 @@
               <input type="tel" name="phone" autocomplete="tel" required>
             </label>
             <label>
-              Service
-              <select name="service" required>
-                <option value="">Select service</option>
-                <option>General Physician</option>
-                <option>Pediatrics</option>
-                <option>Diabetology</option>
-                <option>Gynaecology</option>
-                <option>Physiotherapy</option>
-                <option>Laboratory</option>
-                <option>Pharmacy</option>
-              </select>
+              Describe the problem
+              <textarea name="problem" rows="5" placeholder="Briefly describe symptoms or the reason for the visit" required></textarea>
             </label>
-            <label>
-              Preferred date
-              <input type="date" name="date" required>
-            </label>
-            <label>
-              Message
-              <textarea name="message" rows="4" placeholder="Briefly describe the visit reason"></textarea>
-            </label>
-            <button class="button button-primary form-button" type="submit">Send Request</button>
+            <button class="button button-primary form-button" type="submit">Book Appointment</button>
           </form>
         </div>
       </section>

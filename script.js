@@ -33,11 +33,32 @@
     statusIcon.classList.toggle("is-open", isOpen);
   }
 
-  const dateInput = document.querySelector('input[type="date"]');
+  const appointmentForm = document.querySelector("[data-whatsapp-form]");
 
-  if (dateInput) {
-    const today = new Date();
-    const timezoneOffset = today.getTimezoneOffset() * 60000;
-    dateInput.min = new Date(today.getTime() - timezoneOffset).toISOString().slice(0, 10);
+  if (appointmentForm) {
+    appointmentForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(appointmentForm);
+      const name = String(formData.get("name") || "").trim();
+      const phone = String(formData.get("phone") || "").trim();
+      const problem = String(formData.get("problem") || "").trim();
+
+      if (!name || !phone || !problem) {
+        appointmentForm.reportValidity();
+        return;
+      }
+
+      const message = [
+        "Hello Medicure Clinic & Medical,",
+        "I would like to book an appointment.",
+        "",
+        `Name: ${name}`,
+        `Phone: ${phone}`,
+        `Problem: ${problem}`
+      ].join("\n");
+
+      window.location.href = `https://wa.me/917977277478?text=${encodeURIComponent(message)}`;
+    });
   }
 })();
