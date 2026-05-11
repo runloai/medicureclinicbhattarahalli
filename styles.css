@@ -962,9 +962,19 @@ h3 {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.8fr);
+  grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: start;
+}
+
+.map-container {
+  height: 350px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.map-container iframe {
+  min-height: 350px;
 }
 
 .contact-list {
